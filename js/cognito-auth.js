@@ -52,14 +52,20 @@ var WildRydes = window.WildRydes || {};
      * Cognito User Pool functions
      */
 
-    function register(email, password, onSuccess, onFailure) {
+    function register(name, email, password, onSuccess, onFailure) {
         var dataEmail = {
             Name: 'email',
             Value: email
         };
         var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
 
-        userPool.signUp(email, password, [attributeEmail], null,
+        var dataName = {
+            Name: 'name',
+            Value: name
+        };
+        var attributeName = new AmazonCognitoIdentity.CognitoUserAttribute(dataName);
+
+        userPool.signUp(email, password, [attributeEmail, attributeName], null,
             function signUpCallback(err, result) {
                 if (!err) {
                     onSuccess(result);
@@ -70,7 +76,7 @@ var WildRydes = window.WildRydes || {};
         );
     }
 
-    function signin(email, password, onSuccess, onFailure) {
+    function signin( email, password, onSuccess, onFailure) {
         var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
             Username: email,
             Password: password
@@ -113,8 +119,9 @@ var WildRydes = window.WildRydes || {};
     function handleSignin(event) {
         var email = $('#emailInputSignin').val();
         var password = $('#passwordInputSignin').val();
+        
         event.preventDefault();
-        signin(email, password,
+        signin( email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
                 window.location.href = 'ride.html';
@@ -126,9 +133,11 @@ var WildRydes = window.WildRydes || {};
     }
 
     function handleRegister(event) {
+
         var email = $('#emailInputRegister').val();
         var password = $('#passwordInputRegister').val();
         var password2 = $('#password2InputRegister').val();
+        var name = $('#nameInputSignin').val();
 
         var onSuccess = function registerSuccess(result) {
             var cognitoUser = result.user;
@@ -144,7 +153,7 @@ var WildRydes = window.WildRydes || {};
         event.preventDefault();
 
         if (password === password2) {
-            register(email, password, onSuccess, onFailure);
+            register(name, email, password, onSuccess, onFailure);
         } else {
             alert('Passwords do not match');
         }
