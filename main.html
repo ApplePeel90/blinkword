@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Word Memorizing</title>
-	<link rel="stylesheet" type="text/css" href="css/test.css">
-	<script
-	  src="https://code.jquery.com/jquery-3.4.1.min.js"
-	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	  crossorigin="anonymous"></script>
-</head>
-<body>
-	<h1>
-		The Great 
-		<br>
-		<span id="middleHd">Word Memorizing</span> 
-		<br>
-		Tool
-	</h1>
 
-	<div id="stripe">
-		<span id="setInterval">SET SPEED</span>
-		<!-- <input type="text" placeholder="SPEED" id="speed"> -->
-		<select  id="speed" onchange = "selectivity()">
+<head>
+    <title>Word Memorizing</title>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>
+        The Great
+        <br>
+        <span id="middleHd">Word Memorizing</span>
+        <br> Tool
+    </h1>
+
+    <div id="stripe">
+        <span id="setInterval">SET SPEED</span>
+        <!-- <input type="text" placeholder="SPEED" id="speed"> -->
+        <select id="speed" onchange="selectivity()">
 			<!-- <option selected="selected">Select Time Interval</option> -->
 			<option>1</option>
 			<option>2</option>
@@ -28,22 +26,42 @@
 			<option>4</option>
 			<option>5</option>
 		</select>
-		<span id="wordIndex"></span>
-		<button class="Button" id="startBtn">Start</button>
-		<button class="Button" id="pauseBtn">Pause</button>
-	</div>
+        <span id="wordIndex"></span>
+        <button class="Button" id="startBtn">Start</button>
+        <button class="Button" id="pauseBtn">Pause</button>
+    </div>
 
-	<div id="container">
-		<div class="word">
-			<div id="curCH"></div>
-			<div id="curEN"></div>
-		</div>
-		<div class="word" id="runn">
-			<div id="nxtCH"></div>
-			<div id="nxtEN"></div>
-		</div>
-	</div>
+    <div id="container">
+        <div class="word">
+            <div id="curCH"></div>
+            <div id="curEN"></div>
+        </div>
+        <div class="word" id="runn">
+            <div id="nxtCH"></div>
+            <div id="nxtEN"></div>
+        </div>
+    </div>
+    <div id="noCognitoMessage" class="configMessage" style="display: none;">
+        <div class="backdrop"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">No Cognito User Pool Configured</h3>
+            </div>
+            <div class="panel-body">
+                <p>There is no user pool configured in <a href="/js/config.js">/js/config.js</a>. You'll configure this in Module 2 of the workshop.</p>
+            </div>
+        </div>
+    </div>
 
-	<script type="text/javascript" src="js/test.js" charset="utf-8"></script>
+    <script src="js/ride.js"></script>
+    <script type="text/javascript" src="js/test.js" charset="utf-8"></script>
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="https://js.arcgis.com/4.3/"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
 </body>
+
 </html>
