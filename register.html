@@ -16,7 +16,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/message.css">
@@ -43,27 +42,17 @@
         <img src="images/logo.png">
     </header>
 
-
     <section class="form-wrap">
-        <h1>Sign In</h1>
-        <form id="signinForm">
-            <input type="email" id="emailInputSignin" placeholder="Email" required>
-            <input type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
+        <h1>Register</h1>
+        <form id="registrationForm">
+            <input type="text" id="nameInputRegister" placeholder="Name" pattern=".*" required>
+            <input type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+            <input type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+            <input type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
 
-            <input type="submit" value="Sign in">
-
-
-            <!-- <a class="home-button" href="register.html">Giddy Up!</a> -->
+            <input type="submit" value="Let's Ryde">
         </form>
-
-        <form action="register.html">
-            <input type="submit" value="Sign up">
-        </form>
-
     </section>
-
-
-
 
     <script src="js/vendor/jquery-3.1.0.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
