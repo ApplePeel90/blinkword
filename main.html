@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Word Memorizing</title>
+	<link rel="stylesheet" type="text/css" href="css/test.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>
+		The Great 
+		<br>
+		<span id="middleHd">Word Memorizing</span> 
+		<br>
+		Tool
+	</h1>
+
+	<div id="stripe">
+		<span id="setInterval">SET SPEED</span>
+		<!-- <input type="text" placeholder="SPEED" id="speed"> -->
+		<select  id="speed" onchange = "selectivity()">
+			<!-- <option selected="selected">Select Time Interval</option> -->
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+		<span id="wordIndex"></span>
+		<button class="Button" id="startBtn">Start</button>
+		<button class="Button" id="pauseBtn">Pause</button>
+	</div>
+
+	<div id="container">
+		<div class="word">
+			<div id="curCH"></div>
+			<div id="curEN"></div>
+		</div>
+		<div class="word" id="runn">
+			<div id="nxtCH"></div>
+			<div id="nxtEN"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/test.js" charset="utf-8"></script>
+</body>
+</html>
