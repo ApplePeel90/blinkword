@@ -58,11 +58,30 @@ WildRydes.map = WildRydes.map || {};
     // Register click handler for #request button
     $(function onDocReady() {
         $('#request').click(handleRequestClick);
+
         $('#signOut').click(function() {
             WildRydes.signOut();
             alert("You have been signed out.");
             window.location = "index.html";
         });
+        // on dashboard, click "Flash Mode, will go to main.html, have regular flash words"
+        $('#enterFlash').click(function() {
+            window.location = "main.html";
+        });
+
+        // on dashboard, click "Self Diag, will go to familiar.html, user can set the familarity for words"
+        $('#enterSelfDiag').click(function() {
+            window.location = "familiar.html";
+        });
+
+        $('#toDashboardBtn').click(function() {
+            window.location = "dashboard.html";
+        });
+
+        // on familiar.html's div.word, left click->familiar, right click->unfamiliar
+        
+
+
         $(WildRydes.map).on('pickupChange', handlePickupChanged);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
@@ -111,4 +130,6 @@ WildRydes.map = WildRydes.map || {};
     // function displayUpdate(text) {
     //     $('#updates').append($('<li>' + text + '</li>'));
     // }
+
+    
 }(jQuery));
