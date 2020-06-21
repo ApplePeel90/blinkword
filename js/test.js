@@ -6088,8 +6088,11 @@ var GRE_CH = [
 
 var speed = 1000;
 var index=0;
-var start_Btn=document.querySelector("#startBtn");
-var pause_Btn=document.querySelector("#pauseBtn");
+var started=false;
+// var start_Btn=document.querySelector("#startBtn");
+// var pause_Btn=document.querySelector("#pauseBtn");
+var start_Btn=document.getElementById('startBtn');
+var pause_Btn=document.getElementById('pauseBtn');
 var set_int=document.querySelector("#setInterval");
 var running = false;
 
@@ -6135,29 +6138,33 @@ function selectivity(){
 // 	changeWord();
 // };
 
-
-start_Btn.addEventListener("click", function(){
+if (start_Btn) {
+	start_Btn.addEventListener("click", function(){
 	running = true;
 	console.log(running);
 	nIntervId = setInterval(showWord,speed);
 });
+}
 
-pause_Btn.addEventListener("click", function(){
+if (pause_Btn) {
+	pause_Btn.addEventListener("click", function(){
 	running = false;
 	console.log(running);
 	clearInterval(nIntervId);
 });
+}
+
 
 
 
 function showWord(){
-	document.querySelector("#curCH").textContent = GRE_EN[index];
-	document.querySelector("#curEN").textContent = GRE_CH[index];
+	document.querySelector("#curCH").textContent = GRE_CH[index];
+	document.querySelector("#curEN").textContent = GRE_EN[index];
 
 	document.querySelector("#wordIndex").textContent = index;
 
-	document.querySelector("#nxtCH").textContent = GRE_EN[index-1];
-	document.querySelector("#nxtEN").textContent = GRE_CH[index-1];
+	document.querySelector("#nxtCH").textContent = GRE_CH[index-1];
+	document.querySelector("#nxtEN").textContent = GRE_EN[index-1];
 	// document.querySelector("#currentWord").textContent = GRE_EN[index] + " " + GRE_CH[index];
 	index++;
 };
